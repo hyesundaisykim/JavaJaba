@@ -3,7 +3,7 @@ package com.example.demo.vo;
 public class EmpVo {
 	private int eno;
 	private String ename;
-	private String jab;
+	private String job;
 	private int sal;
 	private int comm;
 	private int mgr;
@@ -12,12 +12,12 @@ public class EmpVo {
 	private String email;
 	private String jumin;
 	
-	public EmpVo(int eno, String ename, String jab, int sal, int comm, int mgr, String hiredate, int dno, String email,
+	public EmpVo(int eno, String ename, String job, int sal, int comm, int mgr, String hiredate, int dno, String email,
 			String jumin) {
 		super();
 		this.eno = eno;
 		this.ename = ename;
-		this.jab = jab;
+		this.job = job;
 		this.sal = sal;
 		this.comm = comm;
 		this.mgr = mgr;
@@ -48,12 +48,12 @@ public class EmpVo {
 		this.ename = ename;
 	}
 
-	public String getJab() {
-		return jab;
+	public String getJob() {
+		return job;
 	}
 
-	public void setJab(String jab) {
-		this.jab = jab;
+	public void setJob(String job) {
+		this.job = job;
 	}
 
 	public int getSal() {
