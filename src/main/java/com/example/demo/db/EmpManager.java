@@ -50,7 +50,7 @@ public class EmpManager {
 	
 	public static int updateEmp(EmpVo e) {
 		int re =  -1;
-		SqlSession session = factory.openSession();
+		SqlSession session = factory.openSession(true);
 		re= session.update("emp.update",e);
 		session.close();
 		return re;
