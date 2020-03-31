@@ -5,22 +5,21 @@ public class EmpVo {
 	private String ename;
 	private String jab;
 	private int sal;
-	private int conn;
+	private int comm;
 	private int mgr;
 	private String hiredate;
 	private int dno;
 	private String email;
 	private String jumin;
 	
-	
-	public EmpVo(int eno, String ename, String jab, int sal, int conn, int mgr, String hiredate, int dno, String email,
+	public EmpVo(int eno, String ename, String jab, int sal, int comm, int mgr, String hiredate, int dno, String email,
 			String jumin) {
 		super();
 		this.eno = eno;
 		this.ename = ename;
 		this.jab = jab;
 		this.sal = sal;
-		this.conn = conn;
+		this.comm = comm;
 		this.mgr = mgr;
 		this.hiredate = hiredate;
 		this.dno = dno;
@@ -65,12 +64,12 @@ public class EmpVo {
 		this.sal = sal;
 	}
 
-	public int getConn() {
-		return conn;
+	public int getComm() {
+		return comm;
 	}
 
-	public void setConn(int conn) {
-		this.conn = conn;
+	public void setComm(int comm) {
+		this.comm = comm;
 	}
 
 	public int getMgr() {
@@ -111,5 +110,5 @@ public class EmpVo {
 
 	public void setJumin(String jumin) {
 		this.jumin = jumin;
-	}	
+	}
 }
