@@ -2,7 +2,6 @@ package com.example.demo.db;
 
 import java.io.Reader;
 import java.util.List;
-
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -26,9 +25,9 @@ public class EmpManager {
 	}
 	
 	
-	public static List<EmpVo> listEmp(){
+	public static List<EmpVo> listAll(){
 		SqlSession session = factory.openSession();
-		List<EmpVo> list = session.selectList("emp.listEmp");
+		List<EmpVo> list = session.selectList("emp.listAll");
 		session.close();
 		return list;
 	}
