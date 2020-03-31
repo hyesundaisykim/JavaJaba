@@ -33,5 +33,13 @@ public class EmpManager {
 		return list;
 	}
 	
+	public static int deleteEmp(EmpVo e) {
+		int re = -1;
+		SqlSession session = factory.openSession(true);
+		re = session.delete("emp.delete", e);
+		session.close();
+		return re;
+	}
+	
 	
 }
