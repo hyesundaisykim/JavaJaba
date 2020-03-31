@@ -61,6 +61,14 @@ $(function(){
             	var idx = $(this).attr("idx");
             	$("#eno").val(arr[idx].eno);
             	$("#ename").val(arr[idx].ename);
+            	$("#job").val(arr[idx].job);
+            	$("#sal").val(arr[idx].sal);
+            	$("#comm").val(arr[idx].comm);
+            	$("#mgr").val(arr[idx].mgr);
+            	$("#hiredate-hidden").val(arr[idx].hiredate-hidden);
+            	$("#dno").val(arr[idx].dno);
+            	$("#email").val(arr[idx].email);
+            	$("#jumin").val(arr[idx].jumin);
             	
             });
             
@@ -106,6 +114,7 @@ $(function(){
 				<tr>
 					<td>고용일</td>
 					<td><input type="date" name="hiredate" id="hiredate"></td>
+					<td><input type="hidden" name="hiredate" id="hiredate-hidden"></td>
 				</tr>
 				<tr>
 					<td>부서</td>
