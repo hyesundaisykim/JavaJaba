@@ -38,8 +38,8 @@ $(function(){
 	$("#btnDelete").click(function() {
 		var EmpData = $("#insertForm").serialize();
 		$.ajax("/deleteEmp", {data : EmpData, success : function(r) {
-			
-			
+			alert("삭제 성공");
+			window.location.href = "EmpTest.html";
 			} 
 		});
 	});
@@ -47,7 +47,8 @@ $(function(){
 	$("#btnUpdate").click(function() {
 	     var EmpData = $("#insertForm").serialize();
 	     $.ajax("/updateEmp", {data : EmpData, success : function(r) {
-	        
+	    	 alert("수정 성공");
+			window.location.href = "EmpTest.html";
 	        } 
 	     });
 	});   
