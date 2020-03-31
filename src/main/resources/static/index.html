@@ -3,8 +3,39 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-</head>
-<body>
 
+<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var arr;
+	$.getJSON("listEmp.do",function(data){
+        arr = data;
+        alert(arr);
+        $.each(arr, function(idx, e){ 
+            var tr = $("<tr></tr>"); 
+            var td1 = $("<td></td>").html( e.eno ); 
+            var td2 = $("<td></td>").html( e.ename ); 
+            $(tr).append(td1,td2); 
+          
+            $("#tb").append(tr); 
+        });        
+    });	
+});
+</script>
+</head>
+<body>	
+	<table id="tb" border="1">
+		<tr>
+			<th>사원번호</th>
+			<th>사원이름</th>
+		</tr>
+	</table>
+	
+	<hr width="500px" align="left">
+	<form id="f">
+		사원번호 : <input type="text" id="eno" name="eno"><br>
+		사원이름 : <input type="text" id="ename" name="ename"><br>
+	</form>
+	
 </body>
 </html>
