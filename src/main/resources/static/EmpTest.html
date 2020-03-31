@@ -45,6 +45,17 @@ $(function(){
 
 	});
 	
+	$("#btnUpdate").click(function() {
+		var EmpData = $("#insertForm").serialize();
+		$.ajax("/updateEmp", {data : EmpData, success : function(r) {
+			alert("ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.")
+			
+			} 
+		});
+
+	});		
+	
+	
 	
 	$.getJSON("listEmp.do",function(data){
         arr = data;
@@ -88,61 +99,61 @@ $(function(){
 		<form id="insertForm">
 			<table>
 				<tr>
-					<td>»ç¿ø¹øÈ£</td>
+					<td>ì‚¬ì›ë²ˆí˜¸</td>
 					<td><input type="number" name="eno" id="eno"></td>
 				</tr>
 				<tr>
-					<td>»ç¿øÀÌ¸§</td>
+					<td>ì‚¬ì›ì´ë¦„</td>
 					<td><input type="text" name="ename" id="ename"></td>
 				</tr>
 				<tr>
-					<td>Á÷±Ş</td>
+					<td>ì§ê¸‰</td>
 					<td><input type="text" name="job" id="job"></td>
 				</tr>
 				<tr>
-					<td>±Ş¿©</td>
+					<td>ê¸‰ì—¬</td>
 					<td><input type="number" name="sal" id="sal"></td>
 				</tr>
 				<tr>
-					<td>»ó¿©</td>
+					<td>ìƒì—¬</td>
 					<td><input type="number" name="comm" id="comm"></td>
 				</tr>
 				<tr>
-					<td>°ü¸®ÀÚ</td>
+					<td>ê´€ë¦¬ì</td>
 					<td><input type="text" name="mgr" id="mgr"></td>
 				</tr>
 				<tr>
-					<td>°í¿ëÀÏ</td>
+					<td>ê³ ìš©ì¼</td>
 					<td><input type="date" name="hiredate" id="hiredate"></td>
 					<td><input type="hidden" name="hiredate" id="hiredate-hidden"></td>
 				</tr>
 				<tr>
-					<td>ºÎ¼­</td>
+					<td>ë¶€ì„œ</td>
 					<td><input type="number" name="dno" id="dno"></td>
 				</tr>
 				<tr>
-					<td>ÀÌ¸ŞÀÏ</td>
+					<td>ì´ë©”ì¼</td>
 					<td><input type="text" name="email" id="email"></td>
 				</tr>
 				<tr>
-					<td>ÁÖ¹Îµî·Ï¹øÈ£</td>
+					<td>ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸</td>
 					<td><input type="text" name="jumin" id="jumin"></td>
 				</tr>
 			</table>
 		</form>
-		<button id="btnInsertOk">µî·Ï</button>
-		<button id="btnInsertReset">Ãë¼Ò</button>
-		<button id="btnUpdate">¼öÁ¤</button>
-		<button id="btnDelete">»èÁ¦</button>
+		<button id="btnInsertOk">ë“±ë¡</button>
+		<button id="btnInsertReset">ì·¨ì†Œ</button>
+		<button id="btnUpdate">ìˆ˜ì •</button>
+		<button id="btnDelete">ì‚­ì œ</button>
 	</div>
 	<div class="btnDiv">
-		<button id="btnInsert">»ç¿øµî·Ï</button>
+		<button id="btnInsert">ì‚¬ì›ë“±ë¡</button>
 	</div> 
 	<div id="listDiv">
 		<table id="tb" border="1">
 			<tr>
-				<th>»ç¿ø¹øÈ£</th>
-				<th>»ç¿øÀÌ¸§</th>
+				<th>ì‚¬ì›ë²ˆí˜¸</th>
+				<th>ì‚¬ì›ì´ë¦„</th>
 			</tr>
 		</table>
 	</div>
