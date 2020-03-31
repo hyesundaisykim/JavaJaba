@@ -7,6 +7,6 @@
     select * from dept
   </select>
   <insert id="insert">
-  	insert into dept valuse(#{dno},#{dname},#{dloc})
+  	insert into dept values(#{dno},#{dname},#{dloc})
   </insert>
 </mapper>

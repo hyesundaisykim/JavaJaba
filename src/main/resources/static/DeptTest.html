@@ -10,7 +10,7 @@
 		$("#btnInsert").click(function(){
 			var dept = $("#f").serialize();
 			$.ajax("/insertDept", {data:dept, success:function(r){
-				alert(r);
+				listDept();
 			}});
 		});
 		
@@ -50,8 +50,8 @@
 	부서번호 : <input type="text" id="dno" name="dno"><br>
 	부서이름 : <input type="text" id="dname" name="dname"><br>
 	부서지역 : <input type="text" id="dloc" name="dloc"><br>
-	<button id="btnInsert">확인</button>
 	</form>
+	<button id="btnInsert">확인</button>
 	<hr>
 	<table id="tb" border="1" width="70%">
 		<tr>
