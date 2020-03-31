@@ -18,10 +18,17 @@ $(function(){
 		$("#insertDiv").css("display","block");
 		$(".btnDiv").css("display","none");
 		
-		var insertData = $("#insertForm").serialize();
-		$.ajax("/insertEmp", {data:insertData, success: function(data){
-			alert(data);
-		}})
+		$("#btnInsertOk").click(function(){
+			var insertData = $("#insertForm").serialize();
+			
+			$.ajax("/insertEmp", {data:insertData, success: function(data){
+				alert(data);
+			}})
+			
+		})
+		$("#btnInsertReset").click(function(){
+			$("#insertForm input").val("");
+		})
 		
 	})
 	$("#btnDelete").click(function() {
@@ -101,6 +108,8 @@ $(function(){
 		</form>
 		<button id="btnInsertOk">사원등록</button>
 		<button id="btnInsertReset">취소</button>
+		<button id="btnDelete">삭제</button>
+		<button id="btnUpdate">수정</button>
 	</div>
 	
 	
@@ -116,7 +125,6 @@ $(function(){
 
 	<div class="btnDiv">
 		<button id="btnInsert">사원등록</button>
-		<button id="btnDelete"></button>
 	</div>
 </body>
 </html>
