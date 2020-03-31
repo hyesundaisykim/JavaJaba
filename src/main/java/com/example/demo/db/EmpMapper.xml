@@ -6,4 +6,13 @@
   <select id="selectAll" resultType="Blog">
     select * from emp
   </select>
+  <insert id="insert">
+  	insert into emp values()
+  </insert>
+  <update id="update">
+  
+  </update>
+  <delete id="delete">
+  
+  </delete>
 </mapper>
