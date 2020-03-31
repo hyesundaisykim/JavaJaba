@@ -13,6 +13,7 @@
 $(function(){
 	$("#btnInsert").click(function(){
 		$("#insertDiv").css("display","block");
+		$(".btnDiv").css("display","none");
 		
 	})
 	$("#btnDelete").click(function() {
@@ -73,10 +74,13 @@ $(function(){
 				</tr>
 			</table>
 		</form>
+		<button id="btnInsertOk">사원등록</button>
+		<button id="btnInsertReset">취소</button>
 	</div>
 	
+	<div class="btnDiv">
 		<button id="btnInsert">사원등록</button>
 		<button id="btnDelete"></button>
-
+	</div>
 </body>
 </html>
