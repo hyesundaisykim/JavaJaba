@@ -48,7 +48,7 @@ $(function(){
 	$("#btnUpdate").click(function() {
 		var EmpData = $("#insertForm").serialize();
 		$.ajax("/updateEmp", {data : EmpData, success : function(r) {
-			alert("���������듬����.")
+			alert("삭제완료되었습니다.")
 			
 			} 
 		});
@@ -108,61 +108,69 @@ $(function(){
 		<form id="insertForm">
 			<table>
 				<tr>
-					<td>�ъ��踰���</td>
+					<td>사원번호</td>
 					<td><input type="number" name="eno" id="eno"></td>
 				</tr>
 				<tr>
-					<td>�ъ���대�</td>
+					<td>사원이름</td>
 					<td><input type="text" name="ename" id="ename"></td>
 				</tr>
 				<tr>
-					<td>吏�湲�</td>
+					<td>직급</td>
 					<td><input type="text" name="job" id="job"></td>
 				</tr>
 				<tr>
-					<td>湲���</td>
+					<td>급여</td>
 					<td><input type="number" name="sal" id="sal"></td>
 				</tr>
 				<tr>
-					<td>����</td>
+					<td>상여</td>
 					<td><input type="number" name="comm" id="comm"></td>
 				</tr>
 				<tr>
-					<td>愿�由ъ��</td>
+					<td>관리자</td>
 					<td><input type="text" name="mgr" id="mgr"></td>
 				</tr>
 				<tr>
-					<td>怨��⑹��</td>
+					<td>고용일</td>
 					<td><input type="date" name="hiredate" id="hiredate"></td>
 					<td><input type="hidden" name="hiredate" id="hiredate-hidden"></td>
 				</tr>
 				<tr>
-					<td>遺���</td>
+					<td>부서</td>
 					<td><input type="number" name="dno" id="dno"></td>
 				</tr>
 				<tr>
-					<td>�대���</td>
+					<td>이메일</td>
 					<td><input type="text" name="email" id="email"></td>
 				</tr>
 				<tr>
-					<td>二쇰�쇰�깅�踰���</td>
+					<td>주민등록번호</td>
 					<td><input type="text" name="jumin" id="jumin"></td>
 				</tr>
 			</table>
 		</form>
-		<button id="btnInsertOk">�깅�</button>
-		<button id="btnInsertReset">痍⑥��</button>
-		<button id="btnUpdate">����</button>
-		<button id="btnDelete">����</button>
+		<button id="btnInsertOk">등록</button>
+		<button id="btnInsertReset">취소</button>
+		<button id="btnUpdate">수정</button>
+		<button id="btnDelete">삭제</button>
 	</div>
 	<div class="btnDiv">
-		<button id="btnInsert">�ъ���깅�</button>
+		<button id="btnInsert">사원등록</button>
 	</div> 
 	<div id="listDiv">
 		<table id="tb" border="1">
 			<tr>
-				<th>�ъ��踰���</th>
-				<th>�ъ���대�</th>
+				<th>사원번호</th>
+				<th>사원이름</th>
+				<th>사원직책</th>
+				<th>사원급여</th>
+				<th>사원수당</th>
+				<th>관리자번호</th>
+				<th>입사일</th>
+				<th>부서번호</th>
+				<th>사원이메일</th>
+				<th>사원주민번호</th>
 			</tr>
 		</table>
 	</div>
