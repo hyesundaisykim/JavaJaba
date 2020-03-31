@@ -42,8 +42,16 @@ $(function(){
 			
 			} 
 		});
-
 	});
+	
+	$("#btnUpdate").click(function() {
+	     var EmpData = $("#insertForm").serialize();
+	     $.ajax("/updateEmp", {data : EmpData, success : function(r) {
+	        
+	        } 
+	     });
+	});   
+	
 	
 	
 	$.getJSON("listEmp.do",function(data){
@@ -74,7 +82,6 @@ $(function(){
             	$("#sal").val(arr[idx].sal);
             	$("#comm").val(arr[idx].comm);
             	$("#mgr").val(arr[idx].mgr);
-            	$("#hiredate-hidden").val(arr[idx].hiredate);
             	$("#dno").val(arr[idx].dno);
             	$("#email").val(arr[idx].email);
             	$("#jumin").val(arr[idx].jumin);
@@ -122,8 +129,7 @@ $(function(){
 				</tr>
 				<tr>
 					<td>고용일</td>
-					<td><input type="date" name="hiredate"></td>
-					<td><input type="hidden"  id="hiredate-hidden"></td>
+					<td><input type="date" name="hiredate" id="hiredate"></td>
 				</tr>
 				<tr>
 					<td>부서</td>
