@@ -8,38 +8,37 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.example.demo.vo.EmpVo;
+import com.example.demo.vo.DeptVo;
 
-public class EmpManager {
-
-	private static SqlSessionFactory factory;
+public class DeptManager {
+	
+	public static SqlSessionFactory factory;
 	
 	static {
 		try {
 			Reader reader = Resources.getResourceAsReader("com/example/demo/db/sqlMapConfig.xml");
 			factory = new SqlSessionFactoryBuilder().build(reader);
 			reader.close();
-		}catch (Exception e) {
-			// TODO: handle exception
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 	
-	
-	public static List<EmpVo> listAll(){
+	public static List<DeptVo> listDept(){
 		SqlSession session = factory.openSession();
-		List<EmpVo> list = session.selectList("emp.listAll");
+		List<DeptVo> list = session.selectList("dept.selectAll");
 		session.close();
 		return list;
 	}
 	
-	public static int deleteEmp(EmpVo e) {
+	public static int insertDept(DeptVo d) {
 		int re = -1;
-		SqlSession session = factory.openSession(true);
-		re = session.delete("emp.delete", e);
+		SqlSession session = factory.openSession();
+		re = session.insert("dept.insert",d);
+		session.commit();
 		session.close();
 		return re;
+		
 	}
-	
-	
+
 }
