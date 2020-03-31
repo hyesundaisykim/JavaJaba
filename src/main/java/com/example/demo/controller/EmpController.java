@@ -13,9 +13,7 @@ import com.google.gson.Gson;
 @RestController
 public class EmpController {
 
-
 	
-
 	@Autowired
 	private EmpDao dao;
 

@@ -3,9 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="emp">
-  <select id="selectAll" resultType="Blog">
+  <select id="selectAll" resultType="empVo">
     select * from emp
   </select>
+  
   <insert id="insert">
   	insert into emp values(#{eno},#{ename},#{jab},#{sal},#{comm},#{mgr},#{hiredate},#{dno},#{email},#{jumin})
   </insert>
