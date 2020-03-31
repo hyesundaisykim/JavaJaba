@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dao.EmpDao;
+import com.example.demo.db.EmpManager;
 import com.example.demo.vo.EmpVo;
 
 @RestController
@@ -35,6 +36,12 @@ public class EmpController {
 		return str;
 	}
 	
-	
+	@RequestMapping("/deleteEmp")
+	public String deleteEmp(EmpVo e) {
+		String str = "ok";
+		EmpManager.deleteEmp(e);
+		return str;
+	}
+
 	
 }
