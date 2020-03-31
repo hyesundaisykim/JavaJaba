@@ -10,10 +10,10 @@ public class EmpVo {
 	private String hiredate;
 	private int dno;
 	private String email;
-	private String eamil;
+	private String jumin;
 	
 	public EmpVo(int eno, String ename, String jab, int sal, int conn, int mgr, String hiredate, int dno, String email,
-			String eamil) {
+			String jumin) {
 		super();
 		this.eno = eno;
 		this.ename = ename;
@@ -24,7 +24,7 @@ public class EmpVo {
 		this.hiredate = hiredate;
 		this.dno = dno;
 		this.email = email;
-		this.eamil = eamil;
+		this.jumin = jumin;
 	}
 
 	public EmpVo() {
@@ -104,11 +104,11 @@ public class EmpVo {
 		this.email = email;
 	}
 
-	public String getEamil() {
-		return eamil;
+	public String getJumin() {
+		return jumin;
 	}
 
-	public void setEamil(String eamil) {
-		this.eamil = eamil;
+	public void setJumin(String jumin) {
+		this.jumin = jumin;
 	}	
 }
