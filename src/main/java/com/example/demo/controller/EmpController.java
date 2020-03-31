@@ -1,17 +1,20 @@
 package com.example.demo.controller;
 
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.dao.EmpDao;
+import com.example.demo.db.EmpManager;
 import com.example.demo.vo.EmpVo;
 import com.google.gson.Gson;
 
 @RestController
 public class EmpController {
+
+
+	
 
 	@Autowired
 	private EmpDao dao;
@@ -29,7 +32,19 @@ public class EmpController {
 		return str;
 	}
 	
+	@RequestMapping("/insertEmp")
+	public String insertEmp(EmpVo e) {
+		String str = "ok";
+		dao.insertEmp(e);
+		return str;
+	}
 	
-	
+	@RequestMapping("/deleteEmp")
+	public String deleteEmp(EmpVo e) {
+		String str = "ok";
+		EmpManager.deleteEmp(e);
+		return str;
+	}
+
 	
 }

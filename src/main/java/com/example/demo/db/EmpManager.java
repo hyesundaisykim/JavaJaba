@@ -2,7 +2,6 @@ package com.example.demo.db;
 
 import java.io.Reader;
 import java.util.List;
-
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -31,6 +30,21 @@ public class EmpManager {
 		List<EmpVo> list = session.selectList("emp.listAll");
 		session.close();
 		return list;
+	}
+	
+	public static int insertEmp(EmpVo e) {
+		SqlSession session = factory.openSession(true);
+		int re = session.insert("emp.insert", e);
+		session.close();
+		return re;
+	}
+	
+	public static int deleteEmp(EmpVo e) {
+		int re = -1;
+		SqlSession session = factory.openSession(true);
+		re = session.delete("emp.delete", e);
+		session.close();
+		return re;
 	}
 	
 	

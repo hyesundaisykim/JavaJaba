@@ -13,4 +13,7 @@ public class EmpDao {
 	public List<EmpVo> listAll(){
 		return EmpManager.listAll();
 	}
+	public int insertEmp(EmpVo e) {
+		return EmpManager.insertEmp(e);
+	}
 }
