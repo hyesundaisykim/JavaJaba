@@ -51,7 +51,6 @@ public class EmpManager {
 		int re =  -1;
 		SqlSession session = factory.openSession();
 		re= session.update("emp.update",e);
-		session.commit();
 		session.close();
 		return re;
 	}
