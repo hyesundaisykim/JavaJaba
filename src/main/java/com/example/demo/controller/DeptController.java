@@ -23,6 +23,7 @@ public class DeptController {
 	
 	@RequestMapping("/insertDept")
 	public String insertDept(DeptVo d) {
+		DeptManager.insertDept(d);
 		String str = "ok";
 		
 		return str;
