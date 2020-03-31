@@ -21,4 +21,11 @@ public class DeptController {
 		return str;
 	}
 	
+	@RequestMapping("/insertDept")
+	public String insertDept(DeptVo d) {
+		String str = "ok";
+		
+		return str;
+	}
+	
 }
