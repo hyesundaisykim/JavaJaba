@@ -31,8 +31,8 @@ public class EmpController {
 	
 	@RequestMapping("/insertEmp")
 	public String insertEmp(EmpVo e) {
-		String str = "";
-		
+		String str = "ok";
+		dao.insertEmp(e);
 		return str;
 	}
 	

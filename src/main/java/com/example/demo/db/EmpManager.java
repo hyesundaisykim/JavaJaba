@@ -32,6 +32,13 @@ public class EmpManager {
 		return list;
 	}
 	
+	public static int insertEmp(EmpVo e) {
+		SqlSession session = factory.openSession(true);
+		int re = session.insert("emp.insert", e);
+		session.close();
+		return re;
+	}
+	
 	public static int deleteEmp(EmpVo e) {
 		int re = -1;
 		SqlSession session = factory.openSession(true);
