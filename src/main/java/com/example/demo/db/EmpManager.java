@@ -48,5 +48,12 @@ public class EmpManager {
 		return re;
 	}
 	
+	public static int updateEmp(EmpVo e) {
+		int re =  -1;
+		SqlSession session = factory.openSession();
+		re= session.update("emp.update",e);
+		session.close();
+		return re;
+	}
 	
 }
