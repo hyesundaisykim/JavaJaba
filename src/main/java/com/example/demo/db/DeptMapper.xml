@@ -6,4 +6,7 @@
   <select id="selectAll" resultType="DeptVo">
     select * from dept
   </select>
+  <insert id="insert">
+  	insert into dept valuse(#{dno},#{dname},#{dloc})
+  </insert>
 </mapper>
