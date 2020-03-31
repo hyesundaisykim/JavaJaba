@@ -36,7 +36,7 @@ $(function(){
 		
 	})
 	$("#btnDelete").click(function() {
-		var EmpData = $("#f").serialize();
+		var EmpData = $("#insertForm").serialize();
 		$.ajax("/deleteEmp", {data : EmpData, success : function(r) {
 			
 			
