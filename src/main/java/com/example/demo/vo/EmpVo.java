@@ -12,6 +12,7 @@ public class EmpVo {
 	private String email;
 	private String jumin;
 	
+	
 	public EmpVo(int eno, String ename, String jab, int sal, int conn, int mgr, String hiredate, int dno, String email,
 			String jumin) {
 		super();
