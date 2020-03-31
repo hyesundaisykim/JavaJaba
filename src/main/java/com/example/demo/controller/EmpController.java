@@ -32,8 +32,13 @@ public class EmpController {
 	
 	@RequestMapping("/insertEmp")
 	public String insertEmp(EmpVo e) {
-		String str = "ok";
-		dao.insertEmp(e);
+		String str = "false";
+		int re = dao.insertEmp(e);
+		if(re>0) {
+			str = "등록에 성공하였습니다.";
+		}else {
+			str = "등록에 실패하였습니다.";
+		}
 		return str;
 	}
 	
