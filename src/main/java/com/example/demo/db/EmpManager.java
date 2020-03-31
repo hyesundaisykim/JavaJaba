@@ -27,7 +27,7 @@ public class EmpManager {
 	
 	public static List<EmpVo> listAll(){
 		SqlSession session = factory.openSession();
-		List<EmpVo> list = session.selectList("emp.listAll");
+		List<EmpVo> list = session.selectList("emp.selectAll");
 		session.close();
 		return list;
 	}

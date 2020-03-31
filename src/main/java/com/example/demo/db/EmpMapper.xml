@@ -6,6 +6,7 @@
   <select id="selectAll" resultType="empVo">
     select * from emp
   </select>
+  
   <insert id="insert">
   	insert into emp values(#{eno},#{ename},#{job},#{sal},#{comm},#{mgr},#{hiredate},#{dno},#{email},#{jumin})
   </insert>
