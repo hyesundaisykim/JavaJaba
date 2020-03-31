@@ -11,6 +11,9 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
+	
+	var arr;
+	
 	$("#btnInsert").click(function(){
 		$("#insertDiv").css("display","block");
 		$(".btnDiv").css("display","none");
@@ -30,6 +33,23 @@ $(function(){
 		});
 
 	});
+	
+	
+	$.getJSON("listEmp.do",function(data){
+        arr = data;
+       // alert(arr);
+        $.each(arr, function(idx, e){ 
+            var tr = $("<tr></tr>"); 
+            var td1 = $("<td></td>").html( e.eno ); 
+            var td2 = $("<td></td>").html( e.ename ); 
+            $(tr).append(td1,td2); 
+          
+            $("#tb").append(tr); 
+        });        
+    });	
+	
+	
+	
 });
 </script>
 </head>
@@ -85,13 +105,15 @@ $(function(){
 	
 	
 	<div id="listDiv">
-	
+		<table id="tb" border="1">
+			<tr>
+				<th>사원번호</th>
+				<th>사원이름</th>
+			</tr>
+		</table>
 	</div>
-	
-	
-	
-	
-	
+
+
 	<div class="btnDiv">
 		<button id="btnInsert">사원등록</button>
 		<button id="btnDelete"></button>
