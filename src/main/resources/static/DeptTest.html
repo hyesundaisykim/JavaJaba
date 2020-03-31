@@ -16,6 +16,10 @@
 		
 			var arr;
 			function listDept(){
+				
+				$("#tb").empty();
+				$("#tb").html("<th>부서번호</th><th>부서명</th><th>부서위치</th>");
+				
 				$.getJSON("/listDept",function(data){
 					arr = data;
 					$.each(data, function(idx, d){
@@ -55,9 +59,9 @@
 	<hr>
 	<table id="tb" border="1" width="70%">
 		<tr>
-			<td>부서번호</td>
-			<td>부서명</td>
-			<td>부서위치</td>
+			<th>부서번호</th>
+			<th>부서명</th>
+			<th>부서위치</th>
 		</tr>
 	</table>
 	<br>
