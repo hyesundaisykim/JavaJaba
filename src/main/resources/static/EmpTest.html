@@ -15,10 +15,17 @@ $(function(){
 		$("#insertDiv").css("display","block");
 		$(".btnDiv").css("display","none");
 		
-		var insertData = $("#insertForm").serialize();
-		$.ajax("/insertEmp", {data:insertData, success: function(data){
-			alert(data);
-		}})
+		$("#btnInsertOk").click(function(){
+			var insertData = $("#insertForm").serialize();
+			
+			$.ajax("/insertEmp", {data:insertData, success: function(data){
+				alert(data);
+			}})
+			
+		})
+		$("#btnInsertReset").click(function(){
+			$("#insertForm input").val("");
+		})
 		
 	})
 	$("#btnDelete").click(function() {
