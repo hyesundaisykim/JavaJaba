@@ -16,4 +16,9 @@ public class EmpDao {
 	public int insertEmp(EmpVo e) {
 		return EmpManager.insertEmp(e);
 	}
+	public int updateEmp(EmpVo e) {
+		System.out.println("작동");
+		return EmpManager.updateEmp(e);
+	}
+
 }

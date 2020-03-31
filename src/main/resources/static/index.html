@@ -3,48 +3,36 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		var arr;
-		function listDept(){
-			$.getJSON("/listDept",function(data){
-				arr = data;
-				$.each(data, function(idx, d){
-					
-					var tr = $("<tr></tr>").attr("idx", idx);
-					var idx = $(this).attr("idx");
-					var dept = arr[idx];
-					var i=0;
-					$.each(dept, function(key, value){
-						$(inputArr[i++]).val(value);
-					});
-		
-				$.each(d, function(key, value){
-					var td = $("<td></td>").html(value);
-					$(tr).append(td);
-				});
-				$("#tb").append(tr);
-				});
-			});
-		};
-		
-		$("#btn").click(function(){
-			listDept();
-		});
-		
-	});
+$(function(){
+	var arr;
+	$.getJSON("listEmp.do",function(data){
+        arr = data;
+        alert(arr);
+        $.each(arr, function(idx, e){ 
+            var tr = $("<tr></tr>"); 
+            var td1 = $("<td></td>").html( e.eno ); 
+            var td2 = $("<td></td>").html( e.ename ); 
+            $(tr).append(td1,td2); 
+          
+            $("#tb").append(tr); 
+        });        
+    });	
+});
 </script>
 </head>
-<body>
-	<table id="tb" border="1" width="70%">
+<body>	
+	<table id="tb" border="1">
 		<tr>
-			<td>부서번호</td>
-			<td>부서명</td>
-			<td>부서위치</td>
+			<th>사원번호</th>
+			<th>사원이름</th>
 		</tr>
 	</table>
-	<button id="btn">부서목록 읽어오기</button>
-	<hr>
-</body>
+	
+	<hr width="500px" align="left">
+	<form id="f">
+		사원번호 : <input type="text" id="eno" name="eno"><br>
+		사원이름 : <input type="text" id="ename" name="ename"><br>
+	</form></body>
 </html>

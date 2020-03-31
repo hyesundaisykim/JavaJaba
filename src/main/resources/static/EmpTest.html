@@ -3,25 +3,120 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style type="text/css">
+	#insertDiv{
+		display: none;
+	}
+</style>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
+	
+	var arr;
+	
+	$("#btnInsert").click(function(){
+		$("#insertDiv").css("display","block");
+		$(".btnDiv").css("display","none");
+		
+		var insertData = $("#insertForm").serialize();
+		$.ajax("/insertEmp", {data:insertData, success: function(data){
+			alert(data);
+		}})
+		
+	})
 	$("#btnDelete").click(function() {
 		var EmpData = $("#f").serialize();
 		$.ajax("/deleteEmp", {data : EmpData, success : function(r) {
 			
 			
-			}
+			} 
 		});
 
 	});
+	
+	
+	$.getJSON("listEmp.do",function(data){
+        arr = data;
+       // alert(arr);
+        $.each(arr, function(idx, e){ 
+            var tr = $("<tr></tr>"); 
+            var td1 = $("<td></td>").html( e.eno ); 
+            var td2 = $("<td></td>").html( e.ename ); 
+            $(tr).append(td1,td2); 
+          
+            $("#tb").append(tr); 
+        });        
+    });	
+	
+	
+	
 });
 </script>
 </head>
 <body>
+	<div id="insertDiv">
+		<form id="insertForm">
+			<table>
+				<tr>
+					<td>사원번호</td>
+					<td><input type="number" name="eno"></td>
+				</tr>
+				<tr>
+					<td>사원이름</td>
+					<td><input type="text" name="ename"></td>
+				</tr>
+				<tr>
+					<td>직급</td>
+					<td><input type="text" name="job"></td>
+				</tr>
+				<tr>
+					<td>급여</td>
+					<td><input type="number" name="sal"></td>
+				</tr>
+				<tr>
+					<td>상여</td>
+					<td><input type="number" name="comm"></td>
+				</tr>
+				<tr>
+					<td>관리자</td>
+					<td><input type="text" name="mgr"></td>
+				</tr>
+				<tr>
+					<td>고용일</td>
+					<td><input type="date" name="hiredate"></td>
+				</tr>
+				<tr>
+					<td>부서</td>
+					<td><input type="number" name="dno"></td>
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td><input type="text" name="email"></td>
+				</tr>
+				<tr>
+					<td>주민등록번호</td>
+					<td><input type="text" name="jumin"></td>
+				</tr>
+			</table>
+		</form>
+		<button id="btnInsertOk">사원등록</button>
+		<button id="btnInsertReset">취소</button>
+	</div>
 	
 	
-		<button id="btnDelete"></button>
+	<div id="listDiv">
+		<table id="tb" border="1">
+			<tr>
+				<th>사원번호</th>
+				<th>사원이름</th>
+			</tr>
+		</table>
+	</div>
 
+
+	<div class="btnDiv">
+		<button id="btnInsert">사원등록</button>
+		<button id="btnDelete"></button>
+	</div>
 </body>
 </html>

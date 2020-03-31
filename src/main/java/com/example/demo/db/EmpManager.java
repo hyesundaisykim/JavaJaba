@@ -27,7 +27,8 @@ public class EmpManager {
 	
 	public static List<EmpVo> listAll(){
 		SqlSession session = factory.openSession();
-		List<EmpVo> list = session.selectList("emp.listAll");
+		List<EmpVo> list = session.selectList("emp.selectAll");
+		System.out.println(list);
 		session.close();
 		return list;
 	}
@@ -47,5 +48,12 @@ public class EmpManager {
 		return re;
 	}
 	
+	public static int updateEmp(EmpVo e) {
+		int re =  -1;
+		SqlSession session = factory.openSession();
+		re= session.update("emp.update",e);
+		session.close();
+		return re;
+	}
 	
 }
