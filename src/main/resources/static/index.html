@@ -7,22 +7,19 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	
-	 function listEmp(){
-	        $.getJSON("listEmp.do",function(data){
-	            $.each(data, function(idx, b){ 
-	                var tr = $("<tr></tr>"); 
-	                $.each(b, function(key, value){ 
-	                    var td = $("<td></td>").html( value ); 
-	                    $(tr).append(td); 
-	                }); 
-	                $("#tb").append(tr); 
-	            }); 
-	        });     
-	    }//end function 
- 
-
-	    listEmp(); 
+	var arr;
+	$.getJSON("listEmp.do",function(data){
+        arr = data;
+        alert(arr);
+        $.each(arr, function(idx, e){ 
+            var tr = $("<tr></tr>"); 
+            var td1 = $("<td></td>").html( e.eno ); 
+            var td2 = $("<td></td>").html( e.ename ); 
+            $(tr).append(td1,td2); 
+          
+            $("#tb").append(tr); 
+        });        
+    });	
 });
 </script>
 </head>
@@ -33,6 +30,7 @@ $(function(){
 			<th>사원이름</th>
 		</tr>
 	</table>
+	
 	<hr width="500px" align="left">
 	<form id="f">
 		사원번호 : <input type="text" id="eno" name="eno"><br>

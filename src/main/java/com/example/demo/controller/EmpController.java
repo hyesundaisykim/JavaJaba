@@ -48,6 +48,12 @@ public class EmpController {
 		EmpManager.deleteEmp(e);
 		return str;
 	}
-
+	
+	@RequestMapping("/updateEmp")
+	public String updateEmp(EmpVo e) {
+		String str = "ok";
+		EmpManager.updateEmp(e);
+		return str;
+	}
 	
 }
