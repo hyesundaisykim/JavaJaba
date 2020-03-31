@@ -7,6 +7,10 @@
 	#insertDiv{
 		display: none;
 	}
+	
+	.active{
+		background: pink;
+	}
 </style>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
@@ -49,6 +53,17 @@ $(function(){
             var tr = $("<tr></tr>"); 
             var td1 = $("<td></td>").html( e.eno ); 
             var td2 = $("<td></td>").html( e.ename ); 
+            
+            $(tr).attr("idx", idx);
+            $(tr).click(function(){
+            	$("tr").removeClass("active");
+            	$(this).addClass("active");
+            	var idx = $(this).attr("idx");
+            	$("#eno").val(arr[idx].eno);
+            	$("#ename").val(arr[idx].ename);
+            	
+            });
+            
             $(tr).append(td1,td2); 
           
             $("#tb").append(tr); 
@@ -61,58 +76,59 @@ $(function(){
 </script>
 </head>
 <body>
-	<div id="insertDiv">
+	<div id="insertDiv"> 
 		<form id="insertForm">
 			<table>
 				<tr>
 					<td>사원번호</td>
-					<td><input type="number" name="eno"></td>
+					<td><input type="number" name="eno" id="eno"></td>
 				</tr>
 				<tr>
 					<td>사원이름</td>
-					<td><input type="text" name="ename"></td>
+					<td><input type="text" name="ename" id="ename"></td>
 				</tr>
 				<tr>
 					<td>직급</td>
-					<td><input type="text" name="job"></td>
+					<td><input type="text" name="job" id="job"></td>
 				</tr>
 				<tr>
 					<td>급여</td>
-					<td><input type="number" name="sal"></td>
+					<td><input type="number" name="sal" id="sal"></td>
 				</tr>
 				<tr>
 					<td>상여</td>
-					<td><input type="number" name="comm"></td>
+					<td><input type="number" name="comm" id="comm"></td>
 				</tr>
 				<tr>
 					<td>관리자</td>
-					<td><input type="text" name="mgr"></td>
+					<td><input type="text" name="mgr" id="mgr"></td>
 				</tr>
 				<tr>
 					<td>고용일</td>
-					<td><input type="date" name="hiredate"></td>
+					<td><input type="date" name="hiredate" id="hiredate"></td>
 				</tr>
 				<tr>
 					<td>부서</td>
-					<td><input type="number" name="dno"></td>
+					<td><input type="number" name="dno" id="dno"></td>
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td><input type="text" name="email"></td>
+					<td><input type="text" name="email" id="email"></td>
 				</tr>
 				<tr>
 					<td>주민등록번호</td>
-					<td><input type="text" name="jumin"></td>
+					<td><input type="text" name="jumin" id="jumin"></td>
 				</tr>
 			</table>
 		</form>
-		<button id="btnInsertOk">사원등록</button>
+		<button id="btnInsertOk">등록</button>
 		<button id="btnInsertReset">취소</button>
-		<button id="btnDelete">삭제</button>
 		<button id="btnUpdate">수정</button>
+		<button id="btnDelete">삭제</button>
 	</div>
-	
-	
+	<div class="btnDiv">
+		<button id="btnInsert">사원등록</button>
+	</div> 
 	<div id="listDiv">
 		<table id="tb" border="1">
 			<tr>
@@ -122,9 +138,5 @@ $(function(){
 		</table>
 	</div>
 
-
-	<div class="btnDiv">
-		<button id="btnInsert">사원등록</button>
-	</div>
 </body>
 </html>
