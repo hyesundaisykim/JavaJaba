@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.EmpDao;
 import com.example.demo.vo.EmpVo;
+import com.google.gson.Gson;
 
 @RestController
 public class EmpController {
@@ -20,10 +21,12 @@ public class EmpController {
 	}
 	
 	@RequestMapping(value = "/listEmp.do", produces = "application/json;charset=UTF-8")
-	public void empList() {
+	public String list() {
 		String str = "";
 		List<EmpVo> list = dao.listAll();
-		
+		Gson gson = new Gson();
+		str = gson.toJson(list);
+		return str;
 	}
 	
 	
