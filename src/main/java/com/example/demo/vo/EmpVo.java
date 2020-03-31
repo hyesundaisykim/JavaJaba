@@ -10,10 +10,10 @@ public class EmpVo {
 	private String hiredate;
 	private int dno;
 	private String email;
-	private String eamil;
+	private String jumin;
 	
 	public EmpVo(int eno, String ename, String jab, int sal, int conn, int mgr, String hiredate, int dno, String email,
-			String eamil) {
+			String jumin) {
 		super();
 		this.eno = eno;
 		this.ename = ename;
@@ -24,91 +24,44 @@ public class EmpVo {
 		this.hiredate = hiredate;
 		this.dno = dno;
 		this.email = email;
-		this.eamil = eamil;
+		this.jumin = jumin;
 	}
-
+	
 	public EmpVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getEno() {
-		return eno;
-	}
-
 	public void setEno(int eno) {
 		this.eno = eno;
 	}
-
-	public String getEname() {
-		return ename;
-	}
-
 	public void setEname(String ename) {
 		this.ename = ename;
 	}
-
-	public String getJab() {
-		return jab;
-	}
-
 	public void setJab(String jab) {
 		this.jab = jab;
 	}
-
-	public int getSal() {
-		return sal;
-	}
-
 	public void setSal(int sal) {
 		this.sal = sal;
 	}
-
-	public int getConn() {
-		return conn;
-	}
-
 	public void setConn(int conn) {
 		this.conn = conn;
 	}
-
-	public int getMgr() {
-		return mgr;
-	}
-
 	public void setMgr(int mgr) {
 		this.mgr = mgr;
 	}
-
-	public String getHiredate() {
-		return hiredate;
-	}
-
 	public void setHiredate(String hiredate) {
 		this.hiredate = hiredate;
 	}
-
-	public int getDno() {
-		return dno;
-	}
-
 	public void setDno(int dno) {
 		this.dno = dno;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getEamil() {
-		return eamil;
+	public void setJumin(String jumin) {
+		this.jumin = jumin;
 	}
-
-	public void setEamil(String eamil) {
-		this.eamil = eamil;
-	}	
+	
+		
 }
