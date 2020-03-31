@@ -6,15 +6,33 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(function (){
-		
-		$("#btnInsert").click(function(){
-			$ajax("/insertDept" , {data:data sueecss:function(r){
-				alert(r);
-			}});
-		});
-		
+			var arr;
+			function listDept(){
+				$.getJSON("/listDept",function(data){
+					arr = data;
+					$.each(data, function(idx, d){
+						
+						var tr = $("<tr></tr>").attr("idx", idx);
+						var idx = $(this).attr("idx");
+						var dept = arr[idx];
+						var i=0;
+						$.each(dept, function(key, value){
+							$(inputArr[i++]).val(value);
+						});
+			
+					$.each(d, function(key, value){
+						var td = $("<td></td>").html(value);
+						$(tr).append(td);
+					});
+					$("#tb").append(tr);
+					});
+				});
+			};
+			
+			$("#btn").click(function(){
+				listDept();
+			});
 	});
-
 </script>
 </head>
 <body>
@@ -26,5 +44,15 @@
 	부서지역 : <input type="text" id="dloc" name="dloc"><br>
 	<button id="btnInsert">확인</button>
 	</form>
+	<hr>
+	<table id="tb" border="1" width="70%">
+		<tr>
+			<td>부서번호</td>
+			<td>부서명</td>
+			<td>부서위치</td>
+		</tr>
+	</table>
+	<br>
+	<button id="btn">부서목록 읽어오기</button>
 </body>
 </html>
