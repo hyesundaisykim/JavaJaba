@@ -28,7 +28,7 @@ public class AopLogController {
 		List<UrlCntVo> list = AopLogManager.listCnt();
 		Gson gson = new Gson();
 		str = gson.toJson(list);
-		System.out.println(str);
+		//System.out.println(str);
 		return str;
 	}
 	
