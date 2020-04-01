@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import java.io.FileWriter;
+
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
@@ -16,6 +16,7 @@ import com.example.demo.vo.AopLogVo;
 @Aspect
 public class LogAspect {
 
+	
 	@Pointcut("execution(public * com.example.demo.controller..*(..))")
 	private void aopMethod() {}
 	
