@@ -107,13 +107,6 @@ body {
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$("#btnLogOut").click(function(){
-		sessionStorage.removeItem("memberID");
-		$("#afterLogin").css("visibility", "hidden");
-		$("#beforeLogin").css("visibility", "visible");
-		$("#dock").empty();
-		
-	});
 	
 	$("#btnLogin").click(function(){
 		var member = $(".login-form").serialize();
