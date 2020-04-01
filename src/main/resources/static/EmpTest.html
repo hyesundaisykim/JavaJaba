@@ -95,9 +95,11 @@ $(function(){
 	     });
 	});   
 	
+	$("#btnDept").click(function(){
+		location.href = "/DeptTest.html"
+	})
 	
-	
-	$.getJSON("listEmp.do",function(data){
+		$.getJSON("listEmp.do",function(data){
         arr = data;
        // alert(arr);
         $.each(arr, function(idx, e){ 
@@ -143,7 +145,8 @@ $(function(){
 </script>  
 </head>
 <body>   
-
+	<h2>사원목록</h2>
+	<hr>
 	<div id="insertDiv"> 
 		<form id="insertForm">
 			<table>
@@ -196,8 +199,9 @@ $(function(){
 	</div>
 	<div class="btnDiv">
 		<button id="btnInsert" class="btn">사원등록</button>
-		<button id="btnInsert" class="btn"><a href="DeptTest.html">부서등록</a></button>		
+		<button id="btnDept" class="btn">부서등록</button>		
 	</div> 
+	<br>
 	<div id="listDiv">
 		<table id="tb" border="1">
 			<tr>
