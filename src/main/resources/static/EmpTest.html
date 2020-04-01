@@ -68,6 +68,7 @@ $(function(){
 			
 			$.ajax("/insertEmp", {data:insertData, success: function(data){
 				alert(data);
+				window.location.href = "EmpTest.html";
 			}})
 			
 		})
