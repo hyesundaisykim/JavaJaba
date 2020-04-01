@@ -114,8 +114,7 @@ $(function(){
              var td8 = $("<td></td>").html( e.dno );
              var td9 = $("<td></td>").html( e.email );
              var td10 = $("<td></td>").html( e.jumin );
-             var bt1 = $("<td><button id='btnUpdate' class='btn'>수정</button><button id='btnDelete' class='btn'>삭제</button></td>");
-             $(tr).append(td1,td2,td3,td4,td5,td6,td7,td8,td9,td10,bt1);
+             $(tr).append(td1,td2,td3,td4,td5,td6,td7,td8,td9,td10);
             
             $(tr).attr("idx", idx);
             $(tr).click(function(){
@@ -131,7 +130,6 @@ $(function(){
             	$("#dno").val(arr[idx].dno);
             	$("#email").val(arr[idx].email);
             	$("#jumin").val(arr[idx].jumin);
-            	
             	
             	 
             });
@@ -196,7 +194,8 @@ $(function(){
 		</form>
 		<button id="btnInsertOk" class="btn">등록</button>
 		<button id="btnInsertReset" class="btn">취소</button>
-		
+		<button id="btnUpdate" class="btn">수정</button>
+		<button id="btnDelete" class="btn">삭제</button>
 	</div>
 	<div class="btnDiv">
 		<button id="btnInsert" class="btn">사원등록</button>
