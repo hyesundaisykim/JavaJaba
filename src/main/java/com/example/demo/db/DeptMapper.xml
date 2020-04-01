@@ -6,7 +6,9 @@
   <select id="selectAll" resultType="DeptVo">
     select * from dept order by dno
   </select>
+  
   <insert id="insert">
   	insert into dept values(#{dno},#{dname},#{dloc})
   </insert>
+  
 </mapper>
