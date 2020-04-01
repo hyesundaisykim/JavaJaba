@@ -3,6 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+#tb{
+		border-collapse: collapse;
+   	 	text-align: left;
+    	line-height: 1.5;
+    
+	}
+	
+	#tb th{
+		padding: 10px;
+   	 	font-weight: bold;
+   	 	vertical-align: top;
+    	color: #369;
+    	border-bottom: 3px solid #036;
+	}
+	#tb td{
+		width: 350px;
+   	 	padding: 10px;
+    	vertical-align: top;
+    	border-bottom: 1px solid #ccc;
+	}
+
+
+.btn {
+	    width:70px;
+	    background-color: #369;
+	    border: none;
+	    color:#fff;
+	    padding: 10px 0;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 15px;
+	    margin: 4px;
+	    cursor: pointer;
+	    border-radius:10px;
+	}
+
+</style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(function (){
@@ -14,6 +54,9 @@
 			}});
 		});
 		
+		$("#btnback").click(function(){
+			location.href = "/EmpTest.html"
+		})
 			var arr;
 			function listDept(){
 				
@@ -55,7 +98,9 @@
 	부서이름 : <input type="text" id="dname" name="dname"><br>
 	부서지역 : <input type="text" id="dloc" name="dloc"><br>
 	</form>
-	<button id="btnInsert">확인</button>
+	<br>
+	<button id="btnInsert" class="btn">등록</button>
+	<button id="btnback" class="btn">뒤로</button>
 	<hr>
 	<table id="tb" border="1" width="70%">
 		<tr>
@@ -65,6 +110,6 @@
 		</tr>
 	</table>
 	<br>
-	<button id="btn">부서목록 읽어오기</button>
+	<button id="btn" class="btn">부서목록</button>
 </body>
 </html>
