@@ -2,6 +2,9 @@ package com.example.demo.controller;
 
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +25,7 @@ public class EmpController {
 	}
 	
 	@RequestMapping(value = "/listEmp.do", produces = "application/json;charset=UTF-8")
-	public String list() {
+	public String list(HttpServletRequest request) {
 		String str = "";
 		List<EmpVo> list = dao.listAll();
 		Gson gson = new Gson();
@@ -31,7 +34,7 @@ public class EmpController {
 	}
 	
 	@RequestMapping("/insertEmp")
-	public String insertEmp(EmpVo e) {
+	public String insertEmp(EmpVo e, HttpServletRequest request) {
 		String str = "false";
 		int re = dao.insertEmp(e);
 		if(re>0) {
@@ -43,14 +46,14 @@ public class EmpController {
 	}
 	
 	@RequestMapping("/deleteEmp")
-	public String deleteEmp(EmpVo e) {
+	public String deleteEmp(EmpVo e, HttpServletRequest request) {
 		String str = "ok";
 		EmpManager.deleteEmp(e);
 		return str;
 	}
 	
 	@RequestMapping("/updateEmp")
-	public String updateEmp(EmpVo e) {
+	public String updateEmp(EmpVo e, HttpServletRequest request) {
 		String str = "ok";
 		EmpManager.updateEmp(e);
 		return str;
