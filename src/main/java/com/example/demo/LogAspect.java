@@ -24,10 +24,10 @@ public class LogAspect {
 		String methodName = joinPoint.getSignature().toShortString();
 		
 		HttpServletRequest request = (HttpServletRequest)joinPoint.getArgs()[0];
-		String uri = request.getRequestURI();
+		String url = request.getRequestURI();
 		String ip = request.getRemoteAddr();
 		String time = new Date().toLocaleString();
-		String msg = uri + "\t" + ip + "\t" + time + "\r\n";
+		String msg = url + "\t" + ip + "\t" + time + "\r\n";
 		
 		Date today = new Date();
 		int yy = today.getYear()+1900;
@@ -35,17 +35,12 @@ public class LogAspect {
 		int dd = today.getDate();
 		String fname = yy +""+mm+""+dd+".txt";
 		
-//		AopLogVo a = new AopLogVo();
-//		
-//		
-//		try {
-//			FileWriter fw = new FileWriter(path+"/"+fname, true); 
-//			fw.write(msg);
-//			fw.close();
-//		}catch(Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-	
+		AopLogVo a = new AopLogVo();
+		a.setUrl(url);
+		a.setIp(ip);
+		a.setTime(time);
+		AopLogManager.insertAop(a);
+		
 	}
 	
 }
