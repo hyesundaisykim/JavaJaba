@@ -47,21 +47,54 @@
 	    cursor: pointer;
 	    border-radius:10px;
 	}
+	li{
+		float: left;
+		list-style: none;
+		padding: 10px;
+		cursor: pointer;
+	}
 </style>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		var arr;
-
-		$.getJSON("/listAop",function(data){
-			arr=data;
-			//alert(arr);
-			$.each(arr, function(idx, a){
-				var tr = $("<tr></tr>").attr("idx",idx);
-				var td0 = $("<td></td>").html(a.no);
-				var td1 = $("<td></td>").html(a.url);
-				var td2 = $("<td></td>").html(a.ip);
-				var td3 = $("<td></td>").html(a.time);
+		var totalRecord=0;
+		var totalPage=1;
+		var pageSIZE=5;
+		
+		function printPage(){
+			for(var i=1; i <= totalPage; i++){
+				var li = $("<li/>").html(i);
+				$(li).click(function(){
+					var pageNUM = Number($(this).text());
+					printAop(pageNUM);
+				});
+				$("#paging_button").append(li);
+			}
+		}
+		
+		
+		function printAop(pageNUM){
+			
+			$("#tb").empty();
+			$("#tb").html("<th>锅龋</th><th>URL 林家</th><th>IP 林家</th><th>立加 矫埃</th>");
+			
+			var start = (pageNUM-1)*pageSIZE+1;
+			var end = start + pageSIZE -1;
+			if(end>totalRecord){
+				end = totalRecord;
+			}
+			
+			for(var i=start; i <= end; i++){
+				
+				var aa = arr[i-1];
+				
+				var tr = $("<tr></tr>");
+				//var idx = $(this).attr("idx");
+				var td0 = $("<td></td>").html(aa.no);
+				var td1 = $("<td></td>").html(aa.url);
+				var td2 = $("<td></td>").html(aa.ip);
+				var td3 = $("<td></td>").html(aa.time);
 
 				$(tr).append(td0, td1, td2, td3);
 				$(tr).click(function(){
@@ -70,8 +103,18 @@
 				});
 			
 			$("#tb").append(tr);
-			});
+			};
+		}
+	
+
+		$.getJSON("/listAop",function(data){
+			arr=data;
+			//alert(arr);
 			
+			totalRecord = arr.length;
+			totalPage = Math.ceil(totalRecord/pageSIZE);
+			printPage();
+			printAop(1);
 		});
 		
 		$("#btn").click(function(){
@@ -93,5 +136,6 @@
 			<th>立加 矫埃</th>
 		</tr>
 	</table>
+	<div id="paging_button"></div>
 </body>
 </html>
