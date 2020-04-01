@@ -4,16 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="emp">
   <select id="selectAll" resultType="EmpVo">
-    select * from emp
+    select * from emp order by eno
   </select>
   
   <insert id="insert">
   	insert into emp values(#{eno},#{ename},#{job},#{sal},#{comm},#{mgr},#{hiredate},#{dno},#{email},#{jumin})
   </insert>
+  
   <update id="update">
   	update emp set ename=#{ename},job=#{job},sal=#{sal},comm=#{comm},mgr=#{mgr},dno=#{dno},email=#{email},jumin=#{jumin} where eno=#{eno}
   </update>
+  
   <delete id="delete">
   	delete emp where eno=#{eno}
   </delete>
+  
 </mapper>
