@@ -15,8 +15,8 @@ public class SmtpComponent {
 		JavaMailSenderImpl r = new JavaMailSenderImpl();
 		r.setHost("smtp.gmail.com");
 		r.setPort(587);
-		r.setUsername("88.hmuse");
-		r.setPassword("hmuz963953");
+		r.setUsername("");
+		r.setPassword("");
 		r.setDefaultEncoding("UTF-8");
 		
 		Properties prop = new Properties();
