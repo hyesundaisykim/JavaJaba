@@ -48,10 +48,6 @@
 	    border-radius:10px;
 	}
 	
-	
-
-
-	
 </style>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
@@ -95,9 +91,11 @@ $(function(){
 	     });
 	});   
 	
+	$("#btnDept").click(function(){
+		location.href = "/DeptTest.html"
+	})
 	
-	
-	$.getJSON("listEmp.do",function(data){
+		$.getJSON("listEmp.do",function(data){
         arr = data;
        // alert(arr);
         $.each(arr, function(idx, e){ 
@@ -112,7 +110,8 @@ $(function(){
              var td8 = $("<td></td>").html( e.dno );
              var td9 = $("<td></td>").html( e.email );
              var td10 = $("<td></td>").html( e.jumin );
-             $(tr).append(td1,td2,td3,td4,td5,td6,td7,td8,td9,td10);
+             var bt1 = $("<td><button id='btnUpdate' class='btn'>수정</button><button id='btnDelete' class='btn'>삭제</button></td>");
+             $(tr).append(td1,td2,td3,td4,td5,td6,td7,td8,td9,td10,bt1);
             
             $(tr).attr("idx", idx);
             $(tr).click(function(){
@@ -128,11 +127,9 @@ $(function(){
             	$("#dno").val(arr[idx].dno);
             	$("#email").val(arr[idx].email);
             	$("#jumin").val(arr[idx].jumin);
-            	
-            	 
+
             });
-         
-          
+                   
             $("#tb").append(tr); 
         });        
     });	
@@ -143,7 +140,8 @@ $(function(){
 </script>  
 </head>
 <body>   
-
+	<h2>사원목록</h2>
+	<hr>
 	<div id="insertDiv"> 
 		<form id="insertForm">
 			<table>
@@ -191,13 +189,13 @@ $(function(){
 		</form>
 		<button id="btnInsertOk" class="btn">등록</button>
 		<button id="btnInsertReset" class="btn">취소</button>
-		<button id="btnUpdate" class="btn">수정</button>
-		<button id="btnDelete" class="btn">삭제</button>
+		
 	</div>
 	<div class="btnDiv">
 		<button id="btnInsert" class="btn">사원등록</button>
-		<button id="btnInsert" class="btn"><a href="DeptTest.html">부서등록</a></button>		
+		<button id="btnDept" class="btn">부서등록</button>		
 	</div> 
+	<br>
 	<div id="listDiv">
 		<table id="tb" border="1">
 			<tr>
@@ -211,6 +209,7 @@ $(function(){
 				<th>부서번호</th>
 				<th>사원이메일</th>
 				<th>사원주민번호</th>
+				<th>수정/삭제</th>
 			</tr>
 		</table>
 	</div>
