@@ -49,8 +49,6 @@
 	}
 	
 	
-
-
 	
 </style>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -72,6 +70,7 @@ $(function(){
 			}})
 			
 		})
+		
 		$("#btnInsertReset").click(function(){
 			$("#insertForm input").val("");
 		})
@@ -130,11 +129,9 @@ $(function(){
             	$("#dno").val(arr[idx].dno);
             	$("#email").val(arr[idx].email);
             	$("#jumin").val(arr[idx].jumin);
-            	
-            	 
+
             });
-         
-          
+                   
             $("#tb").append(tr); 
         });        
     });	

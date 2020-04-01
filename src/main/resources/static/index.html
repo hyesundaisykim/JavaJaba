@@ -3,6 +3,13 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style type="text/css">
+   #afterLogin{ 
+
+        visibility: hidden; 
+
+    } 
+</style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
@@ -12,6 +19,7 @@ $(function(){
 		$("#afterLogin").css("visibility", "hidden");
 		$("#beforeLogin").css("visibility", "visible");
 		$("#dock").empty();
+		
 	});
 	
 	$("#btnLogin").click(function(){
@@ -21,7 +29,9 @@ $(function(){
 				sessionStorage.setItem("memberID", r);
 				$("#memberId").html(r);
 				$("#afterLogin").css("visibility", "visible"); 
-	            $("#beforeLogin").css("visibility", "hidden"); 
+	            $("#beforeLogin").css("visibility", "hidden");
+	            alert("로긴성공");
+	            window.location.href = "EmpTest.html";
 			}
 		}});
 	});
