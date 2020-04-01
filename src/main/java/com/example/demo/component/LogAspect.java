@@ -37,13 +37,6 @@ public class LogAspect {
 		}else {
 			String ip = request.getRemoteAddr();
 			String time = new Date().toLocaleString();
-//			String msg = url + "\t" + ip + "\t" + time + "\r\n";
-//			
-//			Date today = new Date();
-//			int yy = today.getYear()+1900;
-//			int mm =today.getMonth()+1;
-//			int dd = today.getDate();
-//			String fname = yy +""+mm+""+dd+".txt";
 			
 			AopLogVo a = new AopLogVo();
 			a.setUrl(url);

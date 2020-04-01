@@ -71,11 +71,8 @@
 				});
 				$("#paging_button").append(li);
 			}
-		}
-		
-		
-		function printAop(pageNUM){
-			
+		}		
+		function printAop(pageNUM){			
 			$("#tb").empty();
 			$("#tb").html("<th>번호</th><th>URL 주소</th><th>IP 주소</th><th>접속 시간</th>");
 			
@@ -83,12 +80,9 @@
 			var end = start + pageSIZE -1;
 			if(end>totalRecord){
 				end = totalRecord;
-			}
-			
-			for(var i=start; i <= end; i++){
-				
-				var aa = arr[i-1];
-				
+			}			
+			for(var i=start; i <= end; i++){				
+				var aa = arr[i-1];				
 				var tr = $("<tr></tr>");
 				//var idx = $(this).attr("idx");
 				var td0 = $("<td></td>").html(aa.no);
@@ -105,12 +99,9 @@
 			$("#tb").append(tr);
 			};
 		}
-	
-
 		$.getJSON("/listAop",function(data){
 			arr=data;
-			//alert(arr);
-			
+			//alert(arr);			
 			totalRecord = arr.length;
 			totalPage = Math.ceil(totalRecord/pageSIZE);
 			printPage();
@@ -131,14 +122,15 @@
     var url;
     var cnt;
     var arr;
-    //var colorArr = [""];
+    //var colorArr = ["#b87333","silver","gold","color: #e5e4e2"];
+    //색들을 배열에 담아놓고 난수를 발생해서 아무거나 색을 가져오게 해야함
     var chartData = [
         ["Element", "Density", { role: "style" } ]        
       ];
     $.getJSON("/cunt.do",function(data){
     	arr = data;
     	$.each(arr,function(idx,c){    		
-    		chartData.push([c.url, c.cnt, "gold"]);
+    		chartData.push([c.url, c.cnt, "silver"]);
     	});	
     });
     
