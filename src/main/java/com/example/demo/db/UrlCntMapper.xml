@@ -5,6 +5,6 @@
 <mapper namespace="urlcnt">
   
   <select id="count" resultType="UrlCntVo">
-  	select url, count(*) from aoplog group by url
+  	select url, count(*) cnt from aoplog group by url
   </select>
 </mapper>

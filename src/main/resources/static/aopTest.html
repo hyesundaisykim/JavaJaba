@@ -131,20 +131,19 @@
     var url;
     var cnt;
     var arr;
+    //var colorArr = [""];
+    var chartData = [
+        ["Element", "Density", { role: "style" } ]        
+      ];
     $.getJSON("/cunt.do",function(data){
     	arr = data;
-    	$.each(arr,function(idx,c){
-    		url = c.url;
-    		cnt = c.cnt;
-    		alert(cnt);
+    	$.each(arr,function(idx,c){    		
+    		chartData.push([c.url, c.cnt, "gold"]);
     	});	
     });
     
 	function drawChart() {
-	      var data = google.visualization.arrayToDataTable([
-	        ["Element", "Density", { role: "style" } ],
-	      	[url, cnt, "silver"]	       
-	      ]);
+	      var data = google.visualization.arrayToDataTable(chartData);
 		      var view = new google.visualization.DataView(data);
 		      view.setColumns([0, 1,
 		                       { calc: "stringify",
