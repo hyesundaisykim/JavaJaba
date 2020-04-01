@@ -44,7 +44,7 @@ public class MailController {
 			
 			SimpleMailMessage mailMSG = new SimpleMailMessage();
 			mailMSG.setSubject(name + "님 고생하셨어요!");
-			mailMSG.setFrom("");
+			mailMSG.setFrom("88.hmuse@gmail.com");
 			mailMSG.setText(name + "님의 이번달 급여는" + pay + "입니다.");
 			mailMSG.setTo(email);
 			try {
