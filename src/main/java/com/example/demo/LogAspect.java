@@ -8,6 +8,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.example.demo.db.AopLogManager;
 import com.example.demo.vo.AopLogVo;
@@ -24,7 +26,7 @@ public class LogAspect {
 	public void before(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().toShortString();
 		
-		HttpServletRequest request = (HttpServletRequest)joinPoint.getArgs()[0];
+		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
 		String url = request.getRequestURI();
 		String ip = request.getRemoteAddr();
 		String time = new Date().toLocaleString();
