@@ -31,8 +31,9 @@ public class MailController {
 		return dao;
 	}
 	
-	@Scheduled(cron = "0 0 12 1 * ?")
+	
 	//@RequestMapping("/mail.do")
+	@Scheduled(cron = "0 14 13 1 * ?")
 	public String sendMail() {
 		String str = "메일발송 실패ㅠ";
 		
