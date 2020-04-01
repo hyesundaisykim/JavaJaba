@@ -26,7 +26,7 @@
     	border-bottom: 1px solid #ccc;
 	}
 	
-	#btn, #btnInsert, #btnback {
+	#btn, #btnInsert, #btnBack, #btnReset {
 	    width:70px;
 	    background-color: #369;
 	    border: none;
@@ -49,7 +49,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(function (){
-				
+		
 		$("#btnInsert").click(function(){
 			var dept = $("#f").serialize();
 			$.ajax("/insertDept", {data:dept, success:function(r){
@@ -57,8 +57,12 @@
 			}});
 		});
 		
-		$("#btnback").click(function(){
+		$("#btnBack").click(function(){
 			location.href = "/EmpTest.html"
+		})
+		
+		$("#btnReset").click(function(){
+			$("#f input").val("");
 		})
 			var arr;
 			function listDept(){
@@ -108,7 +112,8 @@
 	</form>
 	<br>
 	<button id="btnInsert" class="btn">등록</button>
-	<button id="btnback" class="btn">뒤로</button>
+	<button id="btnBack" class="btn">뒤로</button>
+	<button id="btnReset" class="btn">취소</button>
 	<hr>
 	<table id="tb" border="1" width="70%">
 		<tr>
