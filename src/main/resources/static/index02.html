@@ -109,13 +109,11 @@ body {
 $(function(){
 	
 	$("#btnLogin").click(function(){
-		var member = $(".login-form").serialize();
+		var member = $("#login-form").serialize();
 		$.ajax("login", {data:member, success:function(r){
 			if(r != "no"){
 				sessionStorage.setItem("memberID", r);
 				$("#memberId").html(r);
-				$("#afterLogin").css("visibility", "visible"); 
-	            $("#beforeLogin").css("visibility", "hidden");
 	            alert("로긴성공");
 	            window.location.href = "aopTest.html";
 			}
@@ -129,12 +127,12 @@ $(function(){
 <body>	
 <div class="login-page">
   <div class="form">
-    <form class="login-form">
+    <form id="login-form">
       <input type="text" name="id"/>
       <input type="password" name="pwd"/>
-      <button id="btnLogin">login</button>
-      <p class="message">자바잡아</p>
     </form>
+      <button id="btnLogin">login</button>
+      <p class="message">자바잡아</p>    
   </div>
 </div>
 </body>
