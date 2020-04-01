@@ -22,6 +22,7 @@ $(function(){
 		
 	});
 	
+	
 	$("#btnLogin").click(function(){
 		var member = $("#loginForm").serialize();
 		$.ajax("login", {data:member, success:function(r){
