@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.example.demo.vo.EmpVo;
+import com.example.demo.vo.MemberVo;
 
 public class EmpManager {
 
@@ -54,6 +55,15 @@ public class EmpManager {
 		re= session.update("emp.update",e);
 		session.close();
 		return re;
+	}
+	
+	
+	public static MemberVo isMember(MemberVo m) {
+		MemberVo r = null;
+		SqlSession session = factory.openSession();
+		r = session.selectOne("member.isMember", m);
+		session.close();
+		return r;
 	}
 	
 }
