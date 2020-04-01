@@ -41,6 +41,10 @@
 	    border-radius:10px;
 	}
 	
+	.active{
+		background: pink;
+	}
+	
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
@@ -77,7 +81,12 @@
 					$.each(d, function(key, value){
 						var td = $("<td></td>").html(value);
 						$(tr).append(td);
+						$(tr).click(function(){
+							$("tr").removeClass("active");
+							$(this).addClass("active");
+						})
 					});
+					
 					$("#tb").append(tr);
 					});
 				});
