@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	#insertDiv{
+		display: none;
+	}
+	
+	.active{
+		background: pink;
+	}
+	
+	#tb{
+		border-collapse: collapse;
+   	 	text-align: left;
+    	line-height: 1.5;
+    
+	}
+	
+	#tb th{
+		padding: 10px;
+   	 	font-weight: bold;
+   	 	vertical-align: top;
+    	color: #369;
+    	border-bottom: 3px solid #036;
+	}
+	#tb td{
+		width: 150px;
+   	 	padding: 10px;
+    	vertical-align: top;
+    	border-bottom: 1px solid #ccc;
+	}
+	
+	#btn {
+	    width:70px;
+	    background-color: #369;
+	    border: none;
+	    color:#fff;
+	    padding: 10px 0;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 15px;
+	    margin: 4px;
+	    cursor: pointer;
+	    border-radius:10px;
+	}
+</style>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var arr;
+		$.getJSON("/listAop",function(data){
+			arr=data;
+			//alert(arr);
+			$.each(arr, function(idx, a){
+				var tr = $("<tr></tr>").attr("idx",idx);
+				var td0 = $("<td></td>").html(a.no);
+				var td1 = $("<td></td>").html(a.url);
+				var td2 = $("<td></td>").html(a.ip);
+				var td3 = $("<td></td>").html(a.time);
+
+				$(tr).append(td0, td1, td2, td3);
+				$(tr).click(function(){
+					$("tr").removeClass("active");
+					$(this).addClass("active");
+				});
+			
+			$("#tb").append(tr);
+			});
+			
+		});
+		
+		$("#btn").click(function(){
+			location.href = "/EmpTest.html" 
+		})
+		
+	});
+</script>
+</head>
+<body>
+	<h2>로그 기록</h2>
+	<button id="btn">사원목록</button>
+	<hr>
+	<table id="tb" border="1" width="80%">
+		<tr>
+			<th>번호</th>
+			<th>URL 주소</th>
+			<th>IP 주소</th>
+			<th>접속 시간</th>
+		</tr>
+	</table>
+</body>
+</html>
