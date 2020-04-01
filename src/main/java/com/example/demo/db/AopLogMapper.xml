@@ -9,6 +9,6 @@
   </insert>
 
   <select id="selectAll" resultType="aopLogVo">
-    select * from aopLog order by no
+    select * from aopLog order by no desc
   </select>
 </mapper>
