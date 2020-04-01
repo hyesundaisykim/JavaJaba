@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.example.demo.vo.AopLogVo;
+import com.example.demo.vo.UrlCntVo;
 
 public class AopLogManager {
 
@@ -35,6 +36,13 @@ public class AopLogManager {
 	public static List<AopLogVo> listAop(){
 		SqlSession session = factory.openSession();
 		List<AopLogVo> list = session.selectList("aopLog.selectAll");
+		session.close();
+		return list;
+	}
+	
+	public static List<UrlCntVo> listCnt(){
+		SqlSession session = factory.openSession();
+		List<UrlCntVo> list = session.selectList("urlcnt.count");
 		session.close();
 		return list;
 	}

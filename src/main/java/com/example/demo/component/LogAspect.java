@@ -32,22 +32,28 @@ public class LogAspect {
 		if(url.equals("/listAop")) {
 			//System.out.println("삭제하기");
 			
+		}else if(url.equals("/cunt.do")) {
+			
 		}else {
 			String ip = request.getRemoteAddr();
 			String time = new Date().toLocaleString();
-			String msg = url + "\t" + ip + "\t" + time + "\r\n";
-			
-			Date today = new Date();
-			int yy = today.getYear()+1900;
-			int mm =today.getMonth()+1;
-			int dd = today.getDate();
-			String fname = yy +""+mm+""+dd+".txt";
+//			String msg = url + "\t" + ip + "\t" + time + "\r\n";
+//			
+//			Date today = new Date();
+//			int yy = today.getYear()+1900;
+//			int mm =today.getMonth()+1;
+//			int dd = today.getDate();
+//			String fname = yy +""+mm+""+dd+".txt";
 			
 			AopLogVo a = new AopLogVo();
 			a.setUrl(url);
 			a.setIp(ip);
 			a.setTime(time);
 			AopLogManager.insertAop(a);
-		}		
+		}
+		
+		
+//		Object obj = new Object();
+//		return obj;
 	}	
 }

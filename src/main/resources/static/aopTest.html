@@ -123,6 +123,47 @@
 		
 	});
 </script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+  
+    var url;
+    var cnt;
+    var arr;
+    $.getJSON("/cunt.do",function(data){
+    	arr = data;
+    	$.each(arr,function(idx,c){
+    		url = c.url;
+    		cnt = c.cnt;
+    		alert(cnt);
+    	});	
+    });
+    
+	function drawChart() {
+	      var data = google.visualization.arrayToDataTable([
+	        ["Element", "Density", { role: "style" } ],
+	      	[url, cnt, "silver"]	       
+	      ]);
+		      var view = new google.visualization.DataView(data);
+		      view.setColumns([0, 1,
+		                       { calc: "stringify",
+		                         sourceColumn: 1,
+		                         type: "string",
+		                         role: "annotation" },
+		                       2]);
+		      var options = {
+		        title: "서비스명별 요청건수",
+		        width: 1000,
+		        height: 400,
+		        bar: {groupWidth: "10%"},
+		        legend: { position: "none" },
+		      };
+		      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+		      chart.draw(view, options);
+		} 
+    
+  </script>
 </head>
 <body>
 	<h2>로그 기록</h2>
@@ -136,6 +177,7 @@
 			<th>접속 시간</th>
 		</tr>
 	</table>
-	<div id="paging_button"></div>
+	<div id="paging_button"></div><br><br><br>
+    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>  	
 </body>
 </html>
